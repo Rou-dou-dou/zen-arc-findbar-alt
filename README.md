@@ -47,4 +47,4 @@ The script finds the Zen profile, copies `chrome.css` into `chrome/arc-findbar.c
 
 ## License
 
-[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/), the license of the Zen theme store.
+[MIT](LICENSE)
