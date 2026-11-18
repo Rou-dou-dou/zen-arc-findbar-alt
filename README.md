@@ -55,11 +55,12 @@ Prefer not to run a script? These steps work on every system. The only differenc
 1. In Zen, open `about:support`, find **Profile Folder** and click the button next to it (**Show in Finder** / **Open Folder**).
 2. Create a folder named `chrome` there (if it doesn't exist).
 3. Copy `chrome.css` into `chrome` and rename it to `arc-findbar.css`.
-4. In `chrome`, create a plain text file named `userChrome.css` with this line at the top:
-   ```css
-   @import url("arc-findbar.css");
-   ```
-   On macOS, in TextEdit choose **Format → Make Plain Text** first. On Windows, make sure it isn't saved as `userChrome.css.txt`.
+4. Is there already a `userChrome.css` in `chrome`?
+   - **No:** copy `userChrome.css` from the download into `chrome`.
+   - **Yes:** open it in a text editor and add this line at the very top (`@import` only works above all other rules):
+     ```css
+     @import url("arc-findbar.css");
+     ```
 5. Open `about:config`, accept the warning, and set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`.
 6. Optional: set the [highlight colors](#highlight-colors).
 7. Restart Zen.
@@ -100,7 +101,7 @@ Edit the variables at the top of `chrome.css` (`--arc-findbar-width`, `--arc-fin
 
 **Installed with the script:** in Zen's settings under **Zen Mods**, click **Remove** next to Arc-Style Find Bar.
 
-**Installed manually:** open your profile folder (`about:support` → **Profile Folder**), delete `chrome/arc-findbar.css` and the `@import` line in `chrome/userChrome.css`, then restart Zen. If you don't use any other custom styles, also reset `toolkit.legacyUserProfileCustomizations.stylesheets` in `about:config`.
+**Installed manually:** open your profile folder (`about:support` → **Profile Folder**), delete `chrome/arc-findbar.css` and the `@import` line in `chrome/userChrome.css` (or the whole file, if you copied it from the download and added nothing), then restart Zen. If you don't use any other custom styles, also reset `toolkit.legacyUserProfileCustomizations.stylesheets` in `about:config`.
 
 **Highlight colors:** if you used the script, also remove this mod's lines from `user.js` in your profile folder. Then reset the preferences from the table above in `about:config`.
 
