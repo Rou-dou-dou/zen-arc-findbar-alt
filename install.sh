@@ -1,9 +1,9 @@
 #!/bin/zsh
-# Installiert die Arc-Style Find Bar ins aktive Zen-Profil (macOS):
-#  - kopiert chrome.css als chrome/arc-findbar.css ins Profil
-#  - bindet sie per chrome/userChrome.css ein
-#  - übernimmt die Prefs aus ./user.js (userChrome aktivieren, Trefferfarben)
-# Mehrfach ausführbar. Eigenes Profil erzwingen: ./install.sh "/Pfad/zum/Profil"
+# Installs the Arc-Style Find Bar into the active Zen profile (macOS):
+#  - copies chrome.css to <profile>/chrome/arc-findbar.css
+#  - imports it from <profile>/chrome/userChrome.css
+#  - adds the prefs from ./user.js (enable userChrome.css, highlight colors)
+# Safe to run again. Pick a profile yourself: ./install.sh "/path/to/profile"
 set -e
 D=${0:A:h}
 ZEN=~/Library/Application\ Support/zen
@@ -11,18 +11,18 @@ ZEN=~/Library/Application\ Support/zen
 if [[ -n "$1" ]]; then
   P="$1"
 else
-  # Profil der installierten Zen-App: [Install…]-Abschnitt in profiles.ini bzw. installs.ini,
-  # sonst das als Default markierte Profil
+  # Profile used by the installed Zen app: [Install…] section of profiles.ini,
+  # then installs.ini, then the profile marked Default=1
   REL=$(awk -F= '/^\[Install/{s=1;next} /^\[/{s=0} s && /^Default=/{print $2; exit}' "$ZEN/profiles.ini" 2>/dev/null)
   [[ -z "$REL" ]] && REL=$(awk -F= '/^Default=/{print $2; exit}' "$ZEN/installs.ini" 2>/dev/null)
   if [[ -z "$REL" ]]; then
     REL=$(awk -F= '/^\[Profile/{path=""} /^Path=/{path=$2} /^Default=1/{print path; exit}' "$ZEN/profiles.ini" 2>/dev/null)
   fi
-  [[ -z "$REL" ]] && { echo "Kein Zen-Profil gefunden. Zen einmal starten oder Profilpfad als Argument angeben."; exit 1; }
+  [[ -z "$REL" ]] && { echo "No Zen profile found. Start Zen once, or pass the profile path as an argument."; exit 1; }
   P="$ZEN/$REL"
 fi
-[[ -d "$P" ]] || { echo "Profil nicht gefunden: $P"; exit 1; }
-echo "Profil: $P"
+[[ -d "$P" ]] || { echo "Profile not found: $P"; exit 1; }
+echo "Profile: $P"
 
 mkdir -p "$P/chrome"
 cp "$D/chrome.css" "$P/chrome/arc-findbar.css"
@@ -37,4 +37,4 @@ while IFS= read -r line; do
   grep -qxF "$line" "$P/user.js" || echo "$line" >> "$P/user.js"
 done < "$D/user.js"
 
-echo "Installiert. Zen komplett beenden (Cmd+Q) und neu starten."
+echo "Done. Quit Zen completely (Cmd+Q) and start it again."
