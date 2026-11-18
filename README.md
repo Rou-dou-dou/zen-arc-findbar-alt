@@ -2,7 +2,7 @@
 
 A compact find bar for [Zen Browser](https://zen-browser.app) that floats in the top-right corner of the page, the way Arc does it: a borderless search field with the match count inside, then up, down and close. No checkboxes, no status text.
 
-![Preview](image.png)
+![Preview](https://raw.githubusercontent.com/jan-voe/zen-arc-findbar/main/image.png)
 
 ## Features
 
