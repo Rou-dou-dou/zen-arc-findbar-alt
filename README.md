@@ -1,105 +1,89 @@
 # Arc-Style Find Bar
 
-A compact find bar for [Zen Browser](https://zen-browser.app) that floats in the top-right corner of the page, the way Arc does it: a borderless search field with the match count inside, then up, down and close. No checkboxes, no status text.
+The find bar of [Zen Browser](https://zen-browser.app), restyled like Arc's: small, floating in the top-right corner, with just the search field, match count, arrows and close.
 
 ![Preview](https://raw.githubusercontent.com/jan-voe/zen-arc-findbar/main/image.png)
 
 > [!NOTE]
-> **Not available in the Zen mod store.** The repository behind the official Zen mod store ([zen-browser/theme-store](https://github.com/zen-browser/theme-store)) has been archived, so new mods can't be submitted there anymore. Install this mod with the steps below instead. It takes about two minutes.
+> Not available in the Zen mod store, because its repository ([zen-browser/theme-store](https://github.com/zen-browser/theme-store)) has been archived. Installing it by hand takes about two minutes.
 
 ## Features
 
-- Floats in the top-right corner of the page instead of docking at the bottom
-- One row: `[ search field   2 of 5 ] ⌃ ⌄ ✕`
-- Short match count: "2 of 5" instead of "2 of 5 matches"
-- Search text turns red when nothing is found
-- Arc-like highlight colors on the page: all matches yellow, current match orange (see [below](#arc-like-highlight-colors))
-- Follows light and dark mode, short fade/scale animation (respects reduced motion)
+- Floats top-right instead of sitting at the bottom
+- One clean row: `[ search   2 of 5 ] ⌃ ⌄ ✕`
+- Arc-like highlights: all matches yellow, current match orange
+- Works in light and dark mode
 
 ## Installation
 
+**[⬇ Download zen-arc-findbar.zip](https://github.com/jan-voe/zen-arc-findbar/releases/latest/download/zen-arc-findbar.zip)** and unzip it (Safari does this automatically). You get a folder called `zen-arc-findbar`.
+
 ### macOS
 
-You don't need Git or any developer tools. The install script does all the work.
-
-1. **Start Zen once** if you have never used it on this Mac, so it creates your profile. Then quit it with `Cmd + Q`.
-2. **Download this mod.** At the top of this page, click the green **Code** button, then **Download ZIP**. Your Mac saves it to your Downloads folder.
-3. **Unzip it.** Double-click the ZIP file in Downloads. You get a folder called `zen-arc-findbar-main`.
-4. **Open Terminal.** Press `Cmd + Space`, type `Terminal` and press Enter.
-5. **Run the install script.** Copy this line, paste it into Terminal and press Enter:
+1. Open **Terminal** (`Cmd + Space`, type "Terminal", press Enter).
+2. Paste this line and press Enter:
    ```bash
-   zsh ~/Downloads/zen-arc-findbar-main/install.sh
+   zsh ~/Downloads/zen-arc-findbar/install.sh
    ```
-   If the folder is somewhere else, type `zsh ` (with a space at the end), drag `install.sh` from the folder into the Terminal window, and press Enter.
-6. **Check the output.** It should end with `Done. Quit Zen completely (Cmd+Q) and start it again.`
-7. **Restart Zen.** Quit it completely with `Cmd + Q` (closing the window isn't enough), then open it again.
-8. **Try it.** Open any web page and press `Cmd + F`.
+3. Quit Zen with `Cmd + Q` and open it again. Press `Cmd + F` on any page.
 
 <details>
 <summary>What the script does</summary>
 
-It finds the Zen profile, copies `chrome.css` to `<profile>/chrome/arc-findbar.css`, imports it from `<profile>/chrome/userChrome.css` and adds the lines from `user.js` to `<profile>/user.js`. Those lines turn on `userChrome.css` support (off by default in Zen) and set the highlight colors. Existing content in both files is kept, and running the script again doesn't duplicate anything. To use a specific profile: `zsh install.sh "/path/to/profile"`.
+It finds your Zen profile, copies the stylesheet into it, turns on custom stylesheets (`userChrome.css`, off by default in Zen) and sets the highlight colors. Your existing settings are kept, and running it twice is safe. If your folder isn't in Downloads, type `zsh ` and drag `install.sh` into the Terminal window instead.
 
 </details>
 
 ### Windows and Linux
 
-There is no script for Windows and Linux yet, so this is done by hand.
-
-1. **Download this mod.** At the top of this page, click the green **Code** button, then **Download ZIP**, and unzip it.
-2. **Open your Zen profile folder.** In Zen, type `about:support` into the address bar and press Enter. In the table, find **Profile Folder** and click **Open Folder** (Windows) or **Open Directory** (Linux).
-3. **Create the `chrome` folder.** In the profile folder, create a new folder named `chrome` (all lowercase). Skip this if it already exists.
-4. **Copy the stylesheet.** Copy `chrome.css` from the downloaded folder into the `chrome` folder and rename the copy to `arc-findbar.css`.
-5. **Create or edit `userChrome.css`.** In the `chrome` folder, open `userChrome.css` with a text editor (Notepad on Windows). If it doesn't exist, create a new text file with that exact name. On Windows, make sure it isn't saved as `userChrome.css.txt` (in Notepad, choose "Save as type: All files"). Put this line at the very top and save:
+1. In Zen, open `about:support`, find **Profile Folder** and click **Open Folder**.
+2. Create a folder named `chrome` there (if it doesn't exist).
+3. Copy `chrome.css` into `chrome` and rename it to `arc-findbar.css`.
+4. In `chrome`, create a text file named `userChrome.css` (on Windows, not `userChrome.css.txt`) with this line at the top:
    ```css
    @import url("arc-findbar.css");
    ```
-6. **Allow custom styles.** Type `about:config` into the address bar and press Enter. Click **Accept the Risk and Continue**. Search for `toolkit.legacyUserProfileCustomizations.stylesheets` and double-click it so it says `true`.
-7. **Optional: Arc-like highlight colors.** Still in `about:config`, set the values from the table under [Arc-like highlight colors](#arc-like-highlight-colors). Search for each name, click the pencil icon, enter the value and confirm with Enter. For `findbar.highlightAll`, double-click it so it says `true`.
-8. **Restart Zen.** Close all Zen windows, then open Zen again, and press `Ctrl + F` on any page.
+5. Open `about:config`, accept the warning, and set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`.
+6. Optional: set the [highlight colors](#highlight-colors).
+7. Restart Zen.
 
 ### Updating
 
-Download the newest ZIP and repeat the installation. On macOS, delete the old `zen-arc-findbar-main` folder in Downloads first, so the new one gets the same name, then run the install script again. On Windows and Linux, replace `arc-findbar.css` in the `chrome` folder. Restart Zen afterwards.
-
-Updating replaces `arc-findbar.css`, so any changes you made to it (see [Further customization](#further-customization)) need to be made again.
+Delete the old `zen-arc-findbar` folder, download the new ZIP and install again. This overwrites changes you made to the stylesheet.
 
 ## Customization
 
-### Arc-like highlight colors
+### Highlight colors
 
-A mod can only style the find bar itself. How matches are highlighted on the page is controlled by browser settings. The macOS install script sets these for you. To set or change them yourself, use `about:config`:
+Matches on the page are colored by browser settings, not by the stylesheet. The macOS script sets them. On Windows and Linux, or to change them, use `about:config`:
 
-| Preference | Value | What it does |
-| --- | --- | --- |
-| `findbar.highlightAll` | `true` | Highlight all matches, not just the current one |
-| `ui.textHighlightBackground` | `#FFFF00` | All matches: yellow |
-| `ui.textHighlightForeground` | `#000000` | All matches: black text |
-| `ui.textSelectAttentionBackground` | `#FF9632` | Current match: orange |
-| `ui.textSelectAttentionForeground` | `#000000` | Current match: black text |
+| Preference | Value |
+| --- | --- |
+| `findbar.highlightAll` | `true` (highlight all matches) |
+| `ui.textHighlightBackground` | `#FFFF00` (all matches) |
+| `ui.textHighlightForeground` | `#000000` |
+| `ui.textSelectAttentionBackground` | `#FF9632` (current match) |
+| `ui.textSelectAttentionForeground` | `#000000` |
 
-The "Highlight All" checkbox is hidden by this mod, so `findbar.highlightAll` is how you turn highlighting of all matches on or off.
+On macOS these live in `user.js` in your profile folder and are applied on every start, so change them there.
 
-On macOS, the install script writes these values to `user.js` in your profile, and Zen applies them on every start. Changing them in `about:config` only lasts until the next restart, so edit `user.js` in the profile folder instead.
+### Size, position and colors of the bar
 
-### Further customization
-
-All sizes and colors are CSS variables at the top of `chrome.css`, for example `--arc-findbar-width`, `--arc-findbar-offset-top` and `--arc-findbar-bg`. Edit them in the downloaded `chrome.css` and install again (macOS), or edit `arc-findbar.css` in your profile's `chrome` folder directly (Windows and Linux). Restart Zen to see the change.
+Edit the variables at the top of `chrome.css` (`--arc-findbar-width`, `--arc-findbar-offset-top`, `--arc-findbar-bg`, …), install again and restart Zen.
 
 ## Known limitations
 
-- The short match count works by letting the trailing word ("matches", "Übereinstimmungen", …) wrap out of view. With very short words, such as "1 of 1 match" in English, the word can still show.
-- Match case, whole words and diacritics are hidden. Their last state still applies.
-- Built and tested on Zen 1.24 for macOS. Zen updates that change the find bar markup can break the layout.
-- Not tested in split view, and not tested on Windows and Linux yet.
+- Made for Zen 1.24 on macOS. Not tested on Windows, Linux or in split view yet.
+- Zen updates can change the find bar and break the layout.
+- The match count hides the word after the numbers. In some languages a short word like "match" may still show.
+- Match case, whole words and diacritics are hidden. Their last setting still applies.
 
 ## Uninstall
 
 1. Open your profile folder (`about:support` → **Profile Folder**).
-2. In the `chrome` folder, delete `arc-findbar.css` and remove the line `@import url("arc-findbar.css");` from `userChrome.css`.
-3. macOS only: open `user.js` in the profile folder and delete the lines that came from this mod (the ones listed in this repo's `user.js`).
-4. To get the default highlight colors back, open `about:config`, search for each preference from the table above and click the reset arrow next to it.
-5. Restart Zen.
+2. Delete `chrome/arc-findbar.css` and the `@import` line in `chrome/userChrome.css`.
+3. macOS: also remove this mod's lines from `user.js`.
+4. Restart Zen. To reset the highlight colors, reset the preferences above in `about:config`.
 
 ## License
 
