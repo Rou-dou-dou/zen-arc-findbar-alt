@@ -26,6 +26,7 @@ The find bar of [Zen Browser](https://zen-browser.app), restyled like Arc's: sma
    ```bash
    zsh ~/Downloads/zen-arc-findbar/install.sh
    ```
+   Folder not in Downloads? Type `zsh ` (with a space), drag `install.sh` into the Terminal window and press Enter.
 4. Start Zen and press `Cmd + F` on any page.
 
 The find bar now shows up in Zen's settings under **Zen Mods**, like any other mod. You can switch it off or remove it there.
@@ -33,7 +34,7 @@ The find bar now shows up in Zen's settings under **Zen Mods**, like any other m
 <details>
 <summary>What the script does</summary>
 
-It finds your Zen profile and registers the find bar there the same way Zen installs mods from its store. It also sets the highlight colors. Your other mods and settings are kept, and running it twice is safe. It stops if Zen is still running. If your folder isn't in Downloads, type `zsh ` and drag `install.sh` into the Terminal window instead.
+It finds your Zen profile and registers the find bar there the same way Zen installs mods from its store. It also sets the highlight colors. Your other mods and settings are kept, and running it twice is safe. It stops if Zen is still running.
 
 </details>
 
@@ -86,7 +87,7 @@ Edit the variables at the top of `chrome.css` (`--arc-findbar-width`, `--arc-fin
 
 **macOS:** in Zen's settings under **Zen Mods**, click **Remove** next to Arc-Style Find Bar.
 
-**Windows and Linux:** open your profile folder (`about:support` → **Profile Folder**), delete `chrome/arc-findbar.css` and the `@import` line in `chrome/userChrome.css`, then restart Zen.
+**Windows and Linux:** open your profile folder (`about:support` → **Profile Folder**), delete `chrome/arc-findbar.css` and the `@import` line in `chrome/userChrome.css`, then restart Zen. If you don't use any other custom styles, also reset `toolkit.legacyUserProfileCustomizations.stylesheets` in `about:config`.
 
 **Highlight colors:** on macOS, also remove this mod's lines from `user.js` in your profile folder. Then reset the preferences from the table above in `about:config` (all systems).
 

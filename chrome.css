@@ -87,6 +87,7 @@ findbar .findbar-container {
   padding: 0 !important;
   overflow: hidden !important;
   opacity: 1 !important;
+  order: 1 !important; /* before the close button */
 }
 
 /* Flatten the wrapper so field, match count and arrows become siblings */
@@ -203,7 +204,4 @@ findbar .findbar-closebutton > .toolbarbutton-icon {
 findbar .findbar-closebutton {
   order: 99 !important;
   margin-inline-start: 2px !important;
-}
-findbar .findbar-container {
-  order: 1 !important;
 }
