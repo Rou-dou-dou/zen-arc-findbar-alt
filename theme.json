@@ -1,0 +1,14 @@
+{
+  "id": "e59ba9c2-69fb-5a6b-b117-96a85c991db6",
+  "name": "Arc-Style Find Bar",
+  "description": "Zen's find bar, restyled like Arc's: small, floating top-right, with match count, arrows and close.",
+  "homepage": "https://github.com/jan-voe/zen-arc-findbar",
+  "style": "https://raw.githubusercontent.com/jan-voe/zen-arc-findbar/main/chrome.css",
+  "readme": "https://raw.githubusercontent.com/jan-voe/zen-arc-findbar/main/README.md",
+  "image": "https://raw.githubusercontent.com/jan-voe/zen-arc-findbar/main/image.png",
+  "author": "jan-voe",
+  "version": "1.1.0",
+  "tags": ["findbar", "arc"],
+  "createdAt": "2026-11-18",
+  "updatedAt": "2026-11-18"
+}

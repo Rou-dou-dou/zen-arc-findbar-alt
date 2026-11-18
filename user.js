@@ -1,4 +1,3 @@
-user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 // Arc/Chromium-style find highlights: all matches yellow, current match orange
 user_pref("findbar.highlightAll", true);
 user_pref("ui.textHighlightBackground", "#FFFF00");

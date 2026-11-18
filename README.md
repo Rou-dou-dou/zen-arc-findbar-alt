@@ -5,7 +5,7 @@ The find bar of [Zen Browser](https://zen-browser.app), restyled like Arc's: sma
 ![Preview](https://raw.githubusercontent.com/jan-voe/zen-arc-findbar/main/image.png)
 
 > [!NOTE]
-> Not available in the Zen mod store, because its repository ([zen-browser/theme-store](https://github.com/zen-browser/theme-store)) has been archived. Installing it by hand takes about two minutes.
+> Not available in the Zen mod store, because its repository ([zen-browser/theme-store](https://github.com/zen-browser/theme-store)) has been archived. On macOS, a small script installs it as a regular Zen mod anyway. It takes about two minutes.
 
 ## Features
 
@@ -20,17 +20,20 @@ The find bar of [Zen Browser](https://zen-browser.app), restyled like Arc's: sma
 
 ### macOS
 
-1. Open **Terminal** (`Cmd + Space`, type "Terminal", press Enter).
-2. Paste this line and press Enter:
+1. Quit Zen with `Cmd + Q`.
+2. Open **Terminal** (`Cmd + Space`, type "Terminal", press Enter).
+3. Paste this line and press Enter:
    ```bash
    zsh ~/Downloads/zen-arc-findbar/install.sh
    ```
-3. Quit Zen with `Cmd + Q` and open it again. Press `Cmd + F` on any page.
+4. Start Zen and press `Cmd + F` on any page.
+
+The find bar now shows up in Zen's settings under **Zen Mods**, like any other mod. You can switch it off or remove it there.
 
 <details>
 <summary>What the script does</summary>
 
-It finds your Zen profile, copies the stylesheet into it, turns on custom stylesheets (`userChrome.css`, off by default in Zen) and sets the highlight colors. Your existing settings are kept, and running it twice is safe. If your folder isn't in Downloads, type `zsh ` and drag `install.sh` into the Terminal window instead.
+It finds your Zen profile and registers the find bar there the same way Zen installs mods from its store. It also sets the highlight colors. Your other mods and settings are kept, and running it twice is safe. It stops if Zen is still running. If your folder isn't in Downloads, type `zsh ` and drag `install.sh` into the Terminal window instead.
 
 </details>
 
@@ -49,7 +52,7 @@ It finds your Zen profile, copies the stylesheet into it, turns on custom styles
 
 ### Updating
 
-Delete the old `zen-arc-findbar` folder, download the new ZIP and install again. This overwrites changes you made to the stylesheet.
+Zen doesn't update this mod by itself. Delete the old `zen-arc-findbar` folder, download the new ZIP and install again (on macOS, quit Zen and run the script). This overwrites changes you made to the stylesheet.
 
 ## Customization
 
@@ -69,21 +72,23 @@ On macOS these live in `user.js` in your profile folder and are applied on every
 
 ### Size, position and colors of the bar
 
-Edit the variables at the top of `chrome.css` (`--arc-findbar-width`, `--arc-findbar-offset-top`, `--arc-findbar-bg`, …), install again and restart Zen.
+Edit the variables at the top of `chrome.css` (`--arc-findbar-width`, `--arc-findbar-offset-top`, `--arc-findbar-bg`, …) in the downloaded folder and install again.
 
 ## Known limitations
 
 - Made for Zen 1.24 on macOS. Not tested on Windows, Linux or in split view yet.
 - Zen updates can change the find bar and break the layout.
+- The macOS install uses Zen's internal mod format, which isn't officially documented. A future Zen version could change it.
 - The match count hides the word after the numbers. In some languages a short word like "match" may still show.
 - Match case, whole words and diacritics are hidden. Their last setting still applies.
 
 ## Uninstall
 
-1. Open your profile folder (`about:support` → **Profile Folder**).
-2. Delete `chrome/arc-findbar.css` and the `@import` line in `chrome/userChrome.css`.
-3. macOS: also remove this mod's lines from `user.js`.
-4. Restart Zen. To reset the highlight colors, reset the preferences above in `about:config`.
+**macOS:** in Zen's settings under **Zen Mods**, click **Remove** next to Arc-Style Find Bar.
+
+**Windows and Linux:** open your profile folder (`about:support` → **Profile Folder**), delete `chrome/arc-findbar.css` and the `@import` line in `chrome/userChrome.css`, then restart Zen.
+
+**Highlight colors:** on macOS, also remove this mod's lines from `user.js` in your profile folder. Then reset the preferences from the table above in `about:config` (all systems).
 
 ## License
 
