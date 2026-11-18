@@ -16,7 +16,9 @@ A compact find bar for [Zen Browser](https://zen-browser.app) that floats in the
 - Arc-like highlight colors on the page: all matches yellow, current match orange (see [below](#arc-like-highlight-colors))
 - Follows light and dark mode, short fade/scale animation (respects reduced motion)
 
-## Installation on macOS
+## Installation
+
+### macOS
 
 You don't need Git or any developer tools. The install script does all the work.
 
@@ -40,7 +42,7 @@ It finds the Zen profile, copies `chrome.css` to `<profile>/chrome/arc-findbar.c
 
 </details>
 
-## Installation on Windows and Linux
+### Windows and Linux
 
 There is no script for Windows and Linux yet, so this is done by hand.
 
@@ -56,11 +58,15 @@ There is no script for Windows and Linux yet, so this is done by hand.
 7. **Optional: Arc-like highlight colors.** Still in `about:config`, set the values from the table under [Arc-like highlight colors](#arc-like-highlight-colors). Search for each name, click the pencil icon, enter the value and confirm with Enter. For `findbar.highlightAll`, double-click it so it says `true`.
 8. **Restart Zen.** Close all Zen windows, then open Zen again, and press `Ctrl + F` on any page.
 
-## Updating
+### Updating
 
-Download the newest ZIP and repeat the installation. On macOS, just run the install script again. On Windows and Linux, replace `arc-findbar.css` in the `chrome` folder. Restart Zen afterwards.
+Download the newest ZIP and repeat the installation. On macOS, delete the old `zen-arc-findbar-main` folder in Downloads first, so the new one gets the same name, then run the install script again. On Windows and Linux, replace `arc-findbar.css` in the `chrome` folder. Restart Zen afterwards.
 
-## Arc-like highlight colors
+Updating replaces `arc-findbar.css`, so any changes you made to it (see [Further customization](#further-customization)) need to be made again.
+
+## Customization
+
+### Arc-like highlight colors
 
 A mod can only style the find bar itself. How matches are highlighted on the page is controlled by browser settings. The macOS install script sets these for you. To set or change them yourself, use `about:config`:
 
@@ -76,9 +82,16 @@ The "Highlight All" checkbox is hidden by this mod, so `findbar.highlightAll` is
 
 On macOS, the install script writes these values to `user.js` in your profile, and Zen applies them on every start. Changing them in `about:config` only lasts until the next restart, so edit `user.js` in the profile folder instead.
 
-## Customizing
+### Further customization
 
 All sizes and colors are CSS variables at the top of `chrome.css`, for example `--arc-findbar-width`, `--arc-findbar-offset-top` and `--arc-findbar-bg`. Edit them in the downloaded `chrome.css` and install again (macOS), or edit `arc-findbar.css` in your profile's `chrome` folder directly (Windows and Linux). Restart Zen to see the change.
+
+## Known limitations
+
+- The short match count works by letting the trailing word ("matches", "Übereinstimmungen", …) wrap out of view. With very short words, such as "1 of 1 match" in English, the word can still show.
+- Match case, whole words and diacritics are hidden. Their last state still applies.
+- Built and tested on Zen 1.24 for macOS. Zen updates that change the find bar markup can break the layout.
+- Not tested in split view, and not tested on Windows and Linux yet.
 
 ## Uninstall
 
@@ -87,13 +100,6 @@ All sizes and colors are CSS variables at the top of `chrome.css`, for example `
 3. macOS only: open `user.js` in the profile folder and delete the lines that came from this mod (the ones listed in this repo's `user.js`).
 4. To get the default highlight colors back, open `about:config`, search for each preference from the table above and click the reset arrow next to it.
 5. Restart Zen.
-
-## Known limitations
-
-- The short match count works by letting the trailing word ("matches", "Übereinstimmungen", …) wrap out of view. With very short words, such as "1 of 1 match" in English, the word can still show.
-- Match case, whole words and diacritics are hidden. Their last state still applies.
-- Built and tested on Zen 1.24 for macOS. Zen updates that change the find bar markup can break the layout.
-- Not tested in split view, and not tested on Windows and Linux yet.
 
 ## License
 
