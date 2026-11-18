@@ -1,6 +1,6 @@
 # Arc-Style Find Bar
 
-The find bar of [Zen Browser](https://zen-browser.app), restyled like Arc's: small, floating in the top-right corner, with just the search field, match count, arrows and close.
+The find-in-page bar of [Zen Browser](https://zen-browser.app) (the search you open with `Cmd + F` / `Ctrl + F`), restyled like Arc's: small, floating in the top-right corner, with just the search field, match count, arrows and close.
 
 ![Preview](https://raw.githubusercontent.com/jan-voe/zen-arc-findbar/main/image.png)
 
