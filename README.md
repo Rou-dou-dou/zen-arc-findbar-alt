@@ -1,5 +1,7 @@
 # Arc-Style Find Bar
-
+> Forked and enhanced from [jan-voe/zen-arc-findbar](https://github.com/jan-voe/zen-arc-findbar) — adds focus states (`:focus-within` / `:focus-visible`), backdrop blur support, improved match-count truncation across locales, and enhanced not-found feedback.
+>
+> 
 The find-in-page bar of [Zen Browser](https://zen-browser.app) (the search you open with `Cmd + F` / `Ctrl + F`), restyled like Arc's: small, floating in the top-right corner, with just the search field, match count, arrows and close.
 
 ![Preview](https://raw.githubusercontent.com/jan-voe/zen-arc-findbar/main/image.png)
