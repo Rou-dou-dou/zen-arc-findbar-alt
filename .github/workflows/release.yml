@@ -17,7 +17,7 @@ jobs:
       - name: Create zen-arc-findbar-alt.zip
         run: |
           mkdir -p dist/zen-arc-findbar-alt
-          cp chrome.css theme.json README.md image.png dist/zen-arc-findbar-alt/ 2>/dev/null || true
+          cp chrome.css theme.json README.md image.png userChrome.css user.js install.sh install-mod.js LICENSE dist/zen-arc-findbar-alt/ 2>/dev/null || true
           cd dist
           zip -r ../zen-arc-findbar-alt.zip zen-arc-findbar-alt
 
