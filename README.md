@@ -4,7 +4,7 @@
 > 
 The find-in-page bar of [Zen Browser](https://zen-browser.app) (the search you open with `Cmd + F` / `Ctrl + F`), restyled like Arc's: small, floating in the top-right corner, with just the search field, match count, arrows and close.
 
-![Preview](https://raw.githubusercontent.com/jan-voe/zen-arc-findbar/main/image.png)
+![Preview](https://raw.githubusercontent.com/Rou-dou-dou/zen-arc-findbar-alt/main/image.png)
 
 > [!NOTE]
 > Not available in the Zen mod store, because its repository ([zen-browser/theme-store](https://github.com/zen-browser/theme-store)) has been archived. On macOS, a small script installs it as a regular Zen mod anyway. It takes about two minutes.
@@ -69,7 +69,7 @@ Prefer not to run a script? These steps work on every system. The only differenc
 
 ### Updating
 
-Zen doesn't update this mod by itself. Delete the old `zen-arc-findbar` folder, download the new ZIP and install again the same way (script: quit Zen and run it; manual: replace `arc-findbar.css`). This overwrites changes you made to the stylesheet.
+Zen doesn't update this mod by itself. Delete the old `zen-arc-findbar-alt` folder, download the new ZIP and install again the same way (script: quit Zen and run it; manual: replace `arc-findbar.css`). This overwrites changes you made to the stylesheet.
 
 ## Customization
 

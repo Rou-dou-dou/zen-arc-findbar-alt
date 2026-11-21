@@ -5,7 +5,7 @@
  */
 
 :root {
-  --arc-findbar-width: 340px;
+  --arc-findbar-width: 360px;
   --arc-findbar-offset-top: 12px;
   --arc-findbar-offset-right: 12px;
   --arc-findbar-radius: 10px;
@@ -124,7 +124,7 @@ findbar .find-status-icon {
 
 /* ---------- Search field ---------- */
 findbar .findbar-textbox {
-  flex: 1 1 auto !important;
+  flex: 1 1 0 !important;
   width: auto !important;
   min-width: 60px !important;
   min-height: 26px !important;
@@ -153,13 +153,15 @@ findbar .findbar-textbox[flash="true"] {
 findbar .found-matches {
   display: block !important;
   flex: 0 0 auto !important;
-  max-width: 11ch !important;
+  /* Long enough for localized labels ("Occurrence 12 sur 345"), the search
+     field shrinks instead. Ellipsis only as a last resort on very narrow bars. */
+  max-width: 60% !important;
   height: 16px !important;
   line-height: 16px !important;
   margin: 0 6px 0 0 !important;
   overflow: hidden !important;
   white-space: nowrap !important;
-  text-overflow: clip !important;
+  text-overflow: ellipsis !important;
   text-align: end !important;
   color: var(--arc-findbar-muted) !important;
   font-size: 12px !important;
