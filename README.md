@@ -18,7 +18,7 @@ The find-in-page bar of [Zen Browser](https://zen-browser.app) (the search you o
 
 ## Installation
 
-**[⬇ Download zen-arc-findbar.zip](https://github.com/jan-voe/zen-arc-findbar/releases/latest/download/zen-arc-findbar.zip)** and unzip it (Safari does this automatically). You get a folder called `zen-arc-findbar`.
+**[⬇ Download zen-arc-findbar-alt.zip](https://github.com/Rou-dou-dou/zen-arc-findbar-alt/releases/latest/download/zen-arc-findbar-alt.zip)** and unzip it (Safari does this automatically). You get a folder called `zen-arc-findbar-alt`.
 
 ### macOS: with the install script
 
