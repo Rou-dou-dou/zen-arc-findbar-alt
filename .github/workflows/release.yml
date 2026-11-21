@@ -1,0 +1,27 @@
+name: Build Release Zip
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  build-zip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create zen-arc-findbar-alt.zip
+        run: |
+          mkdir -p dist/zen-arc-findbar-alt
+          cp chrome.css theme.json README.md image.png dist/zen-arc-findbar-alt/ 2>/dev/null || true
+          cd dist
+          zip -r ../zen-arc-findbar-alt.zip zen-arc-findbar-alt
+
+      - name: Upload zip to Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: zen-arc-findbar-alt.zip
