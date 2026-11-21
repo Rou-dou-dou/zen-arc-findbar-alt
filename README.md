@@ -26,7 +26,7 @@ The find-in-page bar of [Zen Browser](https://zen-browser.app) (the search you o
 2. Open **Terminal** (`Cmd + Space`, type "Terminal", press Enter).
 3. Paste this line and press Enter:
    ```bash
-   zsh ~/Downloads/zen-arc-findbar/install.sh
+   zsh ~/Downloads/zen-arc-findbar-alt/install.sh
    ```
    Folder not in Downloads? Type `zsh ` (with a space), drag `install.sh` into the Terminal window and press Enter.
 4. Start Zen and press `Cmd + F` on any page.
