@@ -16,6 +16,7 @@
   --arc-findbar-hover: light-dark(rgba(0, 0, 0, 0.06), rgba(255, 255, 255, 0.1));
   --arc-findbar-focus-ring: light-dark(rgba(0, 122, 255, 0.45), rgba(10, 132, 255, 0.55));
   --arc-findbar-shadow: 0 8px 24px rgba(0, 0, 0, 0.18), 0 1px 3px rgba(0, 0, 0, 0.12);
+  --arc-findbar-shadow-focus: 0 10px 28px rgba(0, 0, 0, 0.22), 0 2px 4px rgba(0, 0, 0, 0.14);
   --arc-findbar-notfound: #e5484d;
   --arc-findbar-blur: 0px; /* ex. 12px si --arc-findbar-bg est semi-transparent */
 }
@@ -63,8 +64,10 @@
     visibility 0s !important;
 }
 
+/* Focus: no colored outline, just a slightly stronger shadow (Arc / macOS style) */
 .browserContainer > findbar:focus-within {
-  border-color: var(--arc-findbar-focus-ring) !important;
+  border-color: var(--arc-findbar-border) !important;
+  box-shadow: var(--arc-findbar-shadow-focus) !important;
 }
 
 /* Hidden: Firefox sets [hidden] but keeps display:flex so it can animate */
@@ -202,8 +205,8 @@ findbar .close-icon.findbar-closebutton:hover {
 findbar .findbar-find-previous:focus-visible,
 findbar .findbar-find-next:focus-visible,
 findbar .close-icon.findbar-closebutton:focus-visible {
-  outline: 2px solid var(--arc-findbar-focus-ring) !important;
-  outline-offset: -1px !important;
+  outline: none !important;
+  background: var(--arc-findbar-hover) !important;
 }
 
 findbar .findbar-find-previous[disabled] > .toolbarbutton-icon,
