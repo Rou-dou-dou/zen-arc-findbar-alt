@@ -14,6 +14,7 @@
   --arc-findbar-muted: light-dark(rgba(0, 0, 0, 0.48), rgba(255, 255, 255, 0.52));
   --arc-findbar-border: light-dark(rgba(0, 0, 0, 0.09), rgba(255, 255, 255, 0.12));
   --arc-findbar-hover: light-dark(rgba(0, 0, 0, 0.06), rgba(255, 255, 255, 0.1));
+  --arc-findbar-field-focus: light-dark(rgba(0, 0, 0, 0.05), rgba(255, 255, 255, 0.08));
   --arc-findbar-focus-ring: light-dark(rgba(0, 122, 255, 0.45), rgba(10, 132, 255, 0.55));
   --arc-findbar-shadow: 0 8px 24px rgba(0, 0, 0, 0.18), 0 1px 3px rgba(0, 0, 0, 0.12);
   --arc-findbar-shadow-focus: 0 10px 28px rgba(0, 0, 0, 0.22), 0 2px 4px rgba(0, 0, 0, 0.14);
@@ -140,6 +141,12 @@ findbar .findbar-textbox {
   box-shadow: none !important;
   outline: none !important;
   font-size: 13px !important;
+}
+
+/* Focus: the field gets a soft fill, like a macOS text field (no outline) */
+findbar:focus-within .findbar-textbox {
+  background: var(--arc-findbar-field-focus) !important;
+  border-radius: 6px !important;
 }
 
 findbar .findbar-textbox[status="notfound"],
